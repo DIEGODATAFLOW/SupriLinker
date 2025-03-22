@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-info" style="background-color: #6B8E23; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+    <div class="container">
+        <a class="navbar-brand text-white" href="{% url 'dashboard-index' %}">SupriLinker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir menu de navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="{% url 'dashboard-index' %}" aria-current="page">Dashboard</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="#">Perfil do Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
