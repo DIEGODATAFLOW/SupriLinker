@@ -1,8 +1,13 @@
-body{
-    background: rgb(230, 227, 227);
+body {
+    background: linear-gradient(135deg, #e6f0f2 0%, #d4e6f1 50%, #e1eef6 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-.my-card:hover{
+/* Mantenha seus outros estilos */
+.my-card:hover {
     transform: scale(1.1);
     transition: 0.2s ease-in-out;
 }

@@ -1,50 +1,94 @@
 {% extends 'partials/base.html' %}
 {% block title %} Área da Equipe {% endblock %}
 
-
 {% block content %}
-
+{% include 'partials/topnav.html' %}
 <!--Table-->
 <div class="container">
     <div class="row my-4">
         <div class="col-md-4"></div>
         <div class="col-md-8">
-            <table class="table bg-white">                
-                <thead style="background-color: #DAA520;">
-                    <tr class="text-white">
-                        <th scope="col">Detalhes</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Sobrenome</th>
-                        <th scope="col">Usuário</th>
-                    </tr>
-                </thead>                
-                <tbody>
-                    <tr>
-                        <th scope="row"><a class="btn btn-sm" style="background-color: #DAA520; color: white;" href="">Detalhes</a></th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>                        
-                    </tr>
-                    <tr>
-                        <th scope="row"><a class="btn btn-sm" style="background-color: #DAA520; color: white;" href="">Detalhes</a></th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>                        
-                    </tr>
-                    <tr>
-                        <th scope="row"><a class="btn btn-sm" style="background-color: #DAA520; color: white;" href="">Detalhes</a></th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>                        
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Tabela responsiva -->
+            <div class="table-responsive">
+                <table class="table bg-white shadow-sm rounded">
+                    <!-- Cabeçalho da tabela com sombra e fonte mais destacada -->
+                    <thead style="background-color: #8DC98D; font-weight: 500; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                        <tr>
+                            <th scope="col" style="color: #2F4F4F;"><i class="fas fa-info-circle"></i> Detalhes</th>
+                            <th scope="col" style="color: #2F4F4F;"><i class="fas fa-user"></i> Nome</th>
+                            <th scope="col" style="color: #2F4F4F;"><i class="fas fa-user-tag"></i> Sobrenome</th>
+                            <th scope="col" style="color: #2F4F4F;"><i class="fas fa-at"></i> Usuário</th>
+                        </tr>
+                    </thead>
+                    <!-- Corpo da tabela com efeito de hover nas linhas -->
+                    <tbody style="background-color: #F8F9FA;">
+                        <!-- Primeira linha -->
+                        <tr style="transition: background-color 0.3s ease; color: #2F4F4F;" 
+                            onmouseover="this.style.backgroundColor='#f5f5f5'" 
+                            onmouseout="this.style.backgroundColor='#F8F9FA'">
+                            <th scope="row">
+                                <!-- Botão com efeitos de hover, clique e ícone -->
+                                <a class="btn btn-sm" 
+                                   style="background-color: #8DC98D; color: #2F4F4F; padding: 6px 12px; border-radius: 5px; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" 
+                                   onmouseover="this.style.backgroundColor='#7CB97C'; this.style.color='white';" 
+                                   onmouseout="this.style.backgroundColor='#8DC98D'; this.style.color='#2F4F4F';" 
+                                   onmousedown="this.style.transform='scale(0.95)'" 
+                                   onmouseup="this.style.transform='scale(1)'" 
+                                   href="" 
+                                   aria-label="Ver detalhes">
+                                    <i class="fas fa-info-circle"></i> Detalhes
+                                </a>
+                            </th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <!-- Segunda linha -->
+                        <tr style="transition: background-color 0.3s ease; color: #2F4F4F;" 
+                            onmouseover="this.style.backgroundColor='#f5f5f5'" 
+                            onmouseout="this.style.backgroundColor='#F8F9FA'">
+                            <th scope="row">
+                                <a class="btn btn-sm" 
+                                   style="background-color: #8DC98D; color: #2F4F4F; padding: 6px 12px; border-radius: 5px; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" 
+                                   onmouseover="this.style.backgroundColor='#7CB97C'; this.style.color='white';" 
+                                   onmouseout="this.style.backgroundColor='#8DC98D'; this.style.color='#2F4F4F';" 
+                                   onmousedown="this.style.transform='scale(0.95)'" 
+                                   onmouseup="this.style.transform='scale(1)'" 
+                                   href="" 
+                                   aria-label="Ver detalhes">
+                                    <i class="fas fa-info-circle"></i> Detalhes
+                                </a>
+                            </th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <!-- Terceira linha -->
+                        <tr style="transition: background-color 0.3s ease; color: #2F4F4F;" 
+                            onmouseover="this.style.backgroundColor='#f5f5f5'" 
+                            onmouseout="this.style.backgroundColor='#F8F9FA'">
+                            <th scope="row">
+                                <a class="btn btn-sm" 
+                                   style="background-color: #8DC98D; color: #2F4F4F; padding: 6px 12px; border-radius: 5px; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" 
+                                   onmouseover="this.style.backgroundColor='#7CB97C'; this.style.color='white';" 
+                                   onmouseout="this.style.backgroundColor='#8DC98D'; this.style.color='#2F4F4F';" 
+                                   onmousedown="this.style.transform='scale(0.95)'" 
+                                   onmouseup="this.style.transform='scale(1)'" 
+                                   href="" 
+                                   aria-label="Ver detalhes">
+                                    <i class="fas fa-info-circle"></i> Detalhes
+                                </a>
+                            </th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-
 </div>
-
 <!--End Table-->
-
 
 {% endblock %}

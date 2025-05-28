@@ -1,46 +1,65 @@
 <!--Topside-->
 <div class="container">
     <div class="row mt-4">
+        <!-- Card de Informações -->
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-header text-white" style="background-color: #DAA520">
-                    Informações
-                </div>                
-                <div class="card-body">
+            <div class="card shadow-sm">
+                <div class="card-header" style="background-color: #8DC98D; font-weight: 500; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <h5 class="mb-0" style="color: #2F4F4F;">Informações</h5>
+                </div>
+                <div class="card-body" style="background-color: #F8F9FA;">
                     <marquee behavior="" direction="">
-                        <h3 class="my-4">This is the Information</h3>
+                        <h3 class="my-4" style="color: #2F4F4F;">
+                            This is the Information
+                        </h3>
                     </marquee>
                 </div>
             </div>
         </div>
+
+        <!-- Card de Estatísticas -->
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header text-white" style="background-color: #DAA520">
-                    Estatísticas
-                </div>                
-                <div class="card-body">
+            <div class="card shadow-sm">
+                <div class="card-header" style="background-color: #8DC98D; font-weight: 500; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <h5 class="mb-0" style="color: #2F4F4F;">Gerenciamento e Controle</h5>
+                </div>
+                <div class="card-body" style="background-color: #F8F9FA;">
                     <div class="row">
+                        <!-- Card Equipe -->
                         <div class="col-md-4">
-                            <a class="text-decoration-none text-dark" href="{% url 'dashboard-staff' %}">
-                                <div class="card my-card shadow text-center p-3">
-                                    <h4>Equipe <i class="fas fa-users"></i></h4>
-                                    <h3>4</h3>
+                            <a class="text-decoration-none" href="{% url 'dashboard-staff' %}">
+                                <div class="card my-card shadow-sm text-center p-3" 
+                                     style="background-color: white; transition: all 0.3s ease; border: 1px solid #e0e0e0;"
+                                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.15)';" 
+                                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)';">
+                                    <h4 style="color: #2F4F4F;">Equipe <i class="fas fa-users"></i></h4>
+                                    <h3 style="color: #8DC98D;">4</h3>
                                 </div>
                             </a>
                         </div>
+
+                        <!-- Card Produtos -->
                         <div class="col-md-4">
-                            <a class="text-decoration-none text-dark" href="{% url 'dashboard-product' %}">
-                                <div class="card my-card shadow text-center p-3">
-                                    <h4>Produtos <i class="fas fa-box"></i></h4>
-                                    <h3>4</h3>
+                            <a class="text-decoration-none" href="{% url 'dashboard-product' %}">
+                                <div class="card my-card shadow-sm text-center p-3" 
+                                     style="background-color: white; transition: all 0.3s ease; border: 1px solid #e0e0e0;"
+                                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.15)';" 
+                                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)';">
+                                    <h4 style="color: #2F4F4F;">Produtos <i class="fas fa-box"></i></h4>
+                                    <h3 style="color: #8DC98D;">4</h3>
                                 </div>
                             </a>
                         </div>
+
+                        <!-- Card Pedidos -->
                         <div class="col-md-4">
-                            <a class="text-decoration-none text-dark" href="{% url 'dashboard-order' %}">
-                                <div class="card my-card shadow text-center p-3">
-                                    <h4>Pedidos <i class="fas fa-shipping-fast"></i></h4>
-                                    <h3>4</h3>
+                            <a class="text-decoration-none" href="{% url 'dashboard-order' %}">
+                                <div class="card my-card shadow-sm text-center p-3" 
+                                     style="background-color: white; transition: all 0.3s ease; border: 1px solid #e0e0e0;"
+                                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.15)';" 
+                                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)';">
+                                    <h4 style="color: #2F4F4F;">Pedidos <i class="fas fa-shipping-fast"></i></h4>
+                                    <h3 style="color: #8DC98D;">4</h3>
                                 </div>
                             </a>
                         </div>

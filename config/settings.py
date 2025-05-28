@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # ^
     "dashboard.apps.DashboardConfig",
+    "user.apps.UserConfig",
+    # NOTE -> BIBLIOTECA DE TERCEIROS:
+    "crispy_forms",
+    "crispy_bootstrap4",
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -105,12 +110,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "pt-br"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/Sao_Paulo"
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
 
@@ -128,7 +133,12 @@ STATIC_ROOT = (
     BASE_DIR / "assets"
 )  # Pasta onde os arquivos estáticos serão coletados para produção
 
+LOGIN_REDIRECT_URL = "dashboard-index"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"

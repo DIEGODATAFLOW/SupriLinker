@@ -1,25 +1,282 @@
-<nav class="navbar navbar-expand-lg navbar-info" style="background-color: #6B8E23; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+{% comment %} <nav class="navbar navbar-expand-lg navbar-info" style="background-color: #556B2F; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border-bottom: 2px solid #3C4A2E;">
+    {% if user.is_authenticated %}
     <div class="container">
-        <a class="navbar-brand text-white" href="{% url 'dashboard-index' %}">SupriLinker</a>
+        <!-- Logo/Brand -->
+        <a class="navbar-brand text-white" href="{% url 'dashboard-index' %}" style="font-weight: 500; font-size: 1.25rem;">
+            SupriLinker
+        </a>
+
+        <!-- Botão de Toggle para Mobile -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir menu de navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Itens da Navegação -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link text-white" href="{% url 'dashboard-index' %}" aria-current="page">Dashboard</a>
+                    <a class="nav-link text-white" href="{% url 'dashboard-index' %}" 
+                       style="transition: all 0.3s ease; padding: 8px 12px; border-radius: 4px;"
+                       onmouseover="this.style.backgroundColor='#6B8E23'" 
+                       onmouseout="this.style.backgroundColor='transparent'">
+                        Dashboard
+                    </a>
                 </li>
             </ul>
+
+            <!-- Links à Direita -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link text-white" href="#">Perfil do Admin</a>
-                </li>
+                    <a class="nav-link text-white" href="#" 
+                       style="transition: all 0.3s ease; padding: 8px 12px; border-radius: 4px;"
+                       onmouseover="this.style.backgroundColor='#6B8E23'" 
+                       onmouseout="this.style.backgroundColor='transparent'">
+                        <i class="fas fa-user-circle mr-2"></i> Perfil do Admin
+                    </a>
+                </li>                
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Logout</a>
+                    <form action="{% url 'user-logout' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" 
+                                class="nav-link text-white bg-transparent border-0" 
+                                style="transition: all 0.3s ease; padding: 8px 12px; border-radius: 4px; cursor: pointer;"
+                                onmouseover="this.style.backgroundColor='#6B8E23'" 
+                                onmouseout="this.style.backgroundColor='transparent'">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        </button>
+                    </form>
                 </li>
             </ul>
+            
+            {% else %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="{% url 'user-register' %}" 
+                       style="transition: all 0.3s ease; padding: 8px 12px; border-radius: 4px;"
+                       onmouseover="this.style.backgroundColor='#6B8E23'" 
+                       onmouseout="this.style.backgroundColor='transparent'">
+                        <i class="fas fa-user-circle mr-2"></i> Página de Cadastro
+                    </a>
+                </li>                
+                <li class="nav-item">
+                    <form action="{% url 'user-login' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" 
+                                class="nav-link text-white bg-transparent border-0" 
+                                style="transition: all 0.3s ease; padding: 8px 12px; border-radius: 4px; cursor: pointer;"
+                                onmouseover="this.style.backgroundColor='#6B8E23'" 
+                                onmouseout="this.style.backgroundColor='transparent'">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Login
+                        </button>
+                    </form>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav> {% endcomment %}
+
+{% comment %} 
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4A5E2A; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border-bottom: 2px solid #3C4A2E;">
+    <div class="container">
+        <!-- Logo/Brand -->
+        <a class="navbar-brand" href="{% url 'dashboard-index' %}" style="font-weight: 600; font-size: 1.25rem; letter-spacing: 0.5px;">
+            SupriLinker
+        </a>
+
+        <!-- Botão de Toggle para Mobile -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Itens da Navegação -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if user.is_authenticated %}
+                <!-- Menu para usuários autenticados -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'dashboard-index' %}active font-weight-bold{% endif %}" 
+                           href="{% url 'dashboard-index' %}"
+                           aria-current="{% if request.resolver_match.url_name == 'dashboard-index' %}page{% endif %}">
+                            Dashboard
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'user-profile' %}active font-weight-bold{% endif %}" 
+                           href="#"
+                           aria-current="{% if request.resolver_match.url_name == 'user-profile' %}page{% endif %}">
+                            <i class="fas fa-user-cog mr-1"></i> Perfil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user-logout' %}">
+                            <i class="fas fa-sign-out-alt mr-1"></i> Sair
+                        </a>
+                    </li>
+                </ul>
+            {% else %}
+                <!-- Menu para visitantes -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'user-register' %}active font-weight-bold{% endif %}" 
+                           href="{% url 'user-register' %}"
+                           aria-current="{% if request.resolver_match.url_name == 'user-register' %}page{% endif %}">
+                            <i class="fas fa-user-plus mr-1"></i> Cadastro
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'user-login' %}active font-weight-bold{% endif %}" 
+                           href="{% url 'user-login' %}"
+                           aria-current="{% if request.resolver_match.url_name == 'user-login' %}page{% endif %}">
+                            <i class="fas fa-sign-in-alt mr-1"></i> Entrar
+                        </a>
+                    </li>
+                </ul>
+            {% endif %}
         </div>
     </div>
 </nav>
+
+<style>
+    .navbar {
+        transition: all 0.2s ease;
+    }
+    
+    .navbar-brand:hover {
+        opacity: 0.9;
+    }
+    
+    .nav-link {
+        transition: all 0.2s ease;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin: 0 2px;
+    }
+    
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+    
+    .navbar-dark .navbar-nav .nav-link {
+        color: rgba(255, 255, 255, 0.95);
+    }
+</style> {% endcomment %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4A5E2A; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border-bottom: 2px solid #3C4A2E;">
+    <div class="container">
+        <!-- Logo/Brand -->
+        <a class="navbar-brand" href="{% url 'dashboard-index' %}" style="font-weight: 600; font-size: 1.25rem; letter-spacing: 0.5px;">
+            SupriLinker
+        </a>
+
+        <!-- Botão de Toggle para Mobile -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Itens da Navegação -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if user.is_authenticated %}
+                <!-- Menu para usuários autenticados -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'dashboard-index' %}active font-weight-bold{% endif %}" 
+                           href="{% url 'dashboard-index' %}"
+                           aria-current="{% if request.resolver_match.url_name == 'dashboard-index' %}page{% endif %}">
+                            Dashboard
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'user-profile' %}active font-weight-bold{% endif %}" 
+                           href="#"
+                           aria-current="{% if request.resolver_match.url_name == 'user-profile' %}page{% endif %}">
+                            <i class="fas fa-user-cog mr-1"></i> Perfil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <form id="logout-form" method="post" action="{% url 'user-logout' %}" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link btn btn-link" style="padding: 8px 12px;">
+                                <i class="fas fa-sign-out-alt mr-1"></i> Sair
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            {% else %}
+                <!-- Menu para visitantes -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'user-register' %}active font-weight-bold{% endif %}" 
+                           href="{% url 'user-register' %}"
+                           aria-current="{% if request.resolver_match.url_name == 'user-register' %}page{% endif %}">
+                            <i class="fas fa-user-plus mr-1"></i> Cadastro
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'user-login' %}active font-weight-bold{% endif %}" 
+                           href="{% url 'user-login' %}"
+                           aria-current="{% if request.resolver_match.url_name == 'user-login' %}page{% endif %}">
+                            <i class="fas fa-sign-in-alt mr-1"></i> Entrar
+                        </a>
+                    </li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<style>
+    .navbar {
+        transition: all 0.2s ease;
+    }
+    
+    .navbar-brand:hover {
+        opacity: 0.9;
+    }
+    
+    .nav-link, #logout-form button {
+        transition: all 0.2s ease;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin: 0 2px;
+        display: inline-block;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .nav-link:hover, #logout-form button:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        text-decoration: none;
+    }
+    
+    .nav-link.active, #logout-form button:focus {
+        background-color: rgba(255, 255, 255, 0.25);
+        outline: none;
+    }
+    
+    .navbar-dark .navbar-nav .nav-link,
+    .navbar-dark .navbar-nav #logout-form button {
+        color: rgba(255, 255, 255, 0.95);
+    }
+    
+    #logout-form {
+        display: inline;
+    }
+</style>

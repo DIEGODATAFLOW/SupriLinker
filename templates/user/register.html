@@ -1,0 +1,52 @@
+{% extends 'partials/base.html' %}
+{% block title %}Página de Cadastro{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm p-4">
+                <h3 class="text-center mb-4">
+                    Crie sua conta
+                </h3>
+                <form method="POST" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="d-grid gap-2 mt-4">
+                        <button class="btn btn-primary btn-lg" type="submit">Cadastrar</button>
+                    </div>
+                </form>
+                
+                {# Link de login seguro que não quebra se a URL não existir #}
+                <div class="text-center mt-3">
+                    <small class="text-muted">
+                        Já tem uma conta? <a href="{% url 'user-login' %}">Faça login</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 0.5rem;
+    }
+    body {
+        background-color: #f8fafc; /* Alterado para azul claro quase branco (#f8fafc) */
+    }
+    .form-control:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+    .btn-primary {
+        background-color: #4e73df;
+        border-color: #4e73df;
+    }
+    .btn-primary:hover {
+        background-color: #2e59d9;
+        border-color: #2653d4;
+    }
+</style>
+{% endblock %}
